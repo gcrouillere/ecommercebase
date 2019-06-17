@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
 
   def update
     I18n.locale = params[:article][:locale]
-    @article = Article.find(params[:article][:id])
+    @article = Article.find(params[:id])
     if @article.update(article_params)
       respond_to do |format|
         format.html { redirection_for_comment_and_articles }
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:content, :name, :user_id, :id, :article_main_photo, :title)
+    params.require(:article).permit(:content, :name, :user_id, :article_main_photo, :title)
   end
 
   def redirection_for_comment_and_articles
