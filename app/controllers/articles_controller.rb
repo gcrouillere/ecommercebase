@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    I18n.locale = params[:article][:locale]
     @article = Article.find(params[:article][:id])
     if @article.update(article_params)
       respond_to do |format|
