@@ -34,6 +34,7 @@ class CeramiquesController < ApplicationController
   def update
     @ceramique = Ceramique.find(params[:id])
     @fieldvalue =  @ceramique.send(get_editing_field)
+    byebug
     if @ceramique.update(ceramique_params)
       render json: @ceramique
     else

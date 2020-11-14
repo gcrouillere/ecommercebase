@@ -42,10 +42,12 @@ class OrdersController < ApplicationController
         render "show_#{@active_theme.name}"
       else
         flash[:notice] = t(:expired_basket)
+        session[:order] = nil
         redirect_to ceramiques_path
       end
     else
       flash[:notice] = t(:expired_basket)
+      session[:order] = nil
       redirect_to ceramiques_path
     end
   end

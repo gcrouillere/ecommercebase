@@ -12,5 +12,5 @@
     <button class="btn btn-primary" type="submit">Enregistrer le contenu</button>
   </form>
 <% else %>
-  <%= (@article.content || "" ).html_safe %>
+  <%= (@article.content || "").html_safe %>
 <% end %>
